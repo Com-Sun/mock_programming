@@ -6,25 +6,24 @@ import com.nhnacademy.paymentservice.SmsAlert;
 import com.nhnacademy.paymentservice.exception.LoginFailedException;
 import com.nhnacademy.paymentservice.exception.paymentFailedException;
 import com.nhnacademy.paymentservice.repository.AccountRepository;
-import com.nhnacademy.paymentservice.repository.HashMapAccountRepository;
 
 public class AccountService {
-    HashMapAccountRepository repository;
+//    HashMapAccountRepository repository;
 
     float rate = 0.01f;
 
 
     public AccountService(AccountRepository repository) {
-        this.repository = (HashMapAccountRepository) repository;
+//        this.repository = (HashMapAccountRepository) repository;
 
     }
 
     public Account login(String username, String password) {
-        Account found = repository.findByUsername(username);
-        if (found == null) {
-            throw new LoginFailedException();
-        }
-    return null;
+//        Account found = repository.findByUsername(username);
+//        if (found == null) {
+//            throw new LoginFailedException();
+//        }
+        return null;
     }
 
     public void payment(int amount, Account account) {
@@ -47,8 +46,6 @@ public class AccountService {
         Bill bill = new Bill(amount, account);
         paymentAlert(bill);
         account.plusPoint(accumulatePoint(amount));
-
-
     }
 
     private int accumulatePoint(int amount) {
