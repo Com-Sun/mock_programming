@@ -1,14 +1,12 @@
 package com.nhnacademy.paymentservice;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import com.nhnacademy.paymentservice.accounts.Account;
-import com.nhnacademy.paymentservice.exception.LoginFailedException;
+import com.nhnacademy.paymentservice.paymentservice.PaymentService;
 import com.nhnacademy.paymentservice.repository.AccountRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -46,3 +44,20 @@ class PaymentServiceTest {
 //        verify(paymentService.pay(), times(1))
     }
 }
+
+
+//    @BeforeEach
+//    void setUp() {
+//        // 결제할 떄 무엇이 필요할지
+//        paymentService = new PaymentService();
+//        repository = mock(HashMapAccountRepository.class);
+//    }
+//
+//    @DisplayName("결제 테스트입니다.")
+//    @Test
+//    void paymentTest() {
+//        Account account = new Account("marco", "aaa", 1);
+//        int price = 10000;
+//        paymentService.pay(account, price);
+
+
