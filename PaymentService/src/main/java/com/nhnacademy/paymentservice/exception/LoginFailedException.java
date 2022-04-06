@@ -1,4 +1,4 @@
-package com.nhnacademy.paymentservice.accounts;
+package com.nhnacademy.paymentservice.exception;
 
 public class LoginFailedException extends RuntimeException {
     public LoginFailedException() {

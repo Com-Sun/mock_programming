@@ -4,7 +4,8 @@ import static org.mockito.Mockito.*;
 
 import com.nhnacademy.paymentservice.accounts.Account;
 import com.nhnacademy.paymentservice.accounts.AccountService;
-import com.nhnacademy.paymentservice.accounts.LoginFailedException;
+import com.nhnacademy.paymentservice.exception.LoginFailedException;
+import com.nhnacademy.paymentservice.exception.paymentFailedException;
 import com.nhnacademy.paymentservice.repository.AccountRepository;
 import com.nhnacademy.paymentservice.repository.HashMapAccountRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,7 +30,7 @@ class AccountAvailableTest {
     @Test
     void unableIdException () {
         String username = "hyunjin";
-        Account account = new Account("marco", "aaa", 1);
+        Account account = new Account("marco", "aaa", 1, 10000);
 
         when(repository.findByUsername(username)).thenReturn(null); //조작하는 stubbing 과정
 
@@ -40,14 +41,25 @@ class AccountAvailableTest {
     @DisplayName("결제는 계정에 의존.")
     @Test
     void paymentDependsAccount() {
-        Account account = new Account("marco2", "aaa", 2);
+        Account account = null;
+        int amount = 10000;
 
-        when(repository.findByUsername("aaa")).thenReturn(null);
+//        when(repository.findByUsername("aaa")).thenReturn(null);
 
-        Account result =
+        assertThatThrownBy(() -> service.payment(amount, account))
+            .isInstanceOf(paymentFailedException.class)
+            .hasMessageContaining("해당하는 account가 존재하지 않습니다.");
+    }
+    @DisplayName("결제 처리")
+    @Test
+    void checkPayment(){
+        String username = "marco";
+        String password = "12344";
+        long id = 3;
+        int money = 10000;
 
-        assertThatThrownBy(() -> service.payment())
-            .isInstanceOf(paymentFailedException.class);
+        Account account = new Account(username, password, id, money);
     }
 }// account가 결제를 한다. this를 던짐
+
 
