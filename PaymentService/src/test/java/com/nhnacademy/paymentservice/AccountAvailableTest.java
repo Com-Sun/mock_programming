@@ -79,14 +79,20 @@ class AccountAvailableTest {
         Account account = new Account("marco", "123123", 3, 10000);
 
         service.payment(5000, account);
-        assertThat(account.getPoint()).isEqualsTo(5000 * rate);
-
+        assertThat((float) account.getPoint()).isEqualTo(5000 * rate);
 
     }
 
     @DisplayName("고객 계정 포인트 확인")
     @Test
     void acconutPointCheck() {
+        float rate = 0.01f;
+        Account account = new Account("marco", "123123", 3, 10000);
+
+        account.setPoint(500);
+        service.payment(10000, account);
+        assertThat((float) account.getPoint()).isEqualTo(600);
+
 
     }
 

@@ -5,13 +5,14 @@ public class Account {
     private String name;
     private String password;
     private int money;
-    private int point;
+    private int point = 0;
 
     public Account(String name, String password, long id, int money) {
         this.name = name;
         this.password = password;
         this.id = id;
         this.money = money;
+
     }
 
     public long getId() {
@@ -28,5 +29,13 @@ public class Account {
 
     public int getPoint() {
         return this.point;
+    }
+
+    public void setPoint(int point) {
+        this.point = point;
+    }
+
+    public void accumulatePoint(int point) {
+        this.point += point;
     }
 }

@@ -8,6 +8,8 @@ import com.nhnacademy.paymentservice.repository.HashMapAccountRepository;
 public class AccountService {
     HashMapAccountRepository repository;
 
+    float rate = 0.01f;
+
 
     public AccountService(AccountRepository repository) {
         this.repository = (HashMapAccountRepository) repository;
@@ -39,7 +41,13 @@ public class AccountService {
         money -= amount;
         account.setMoney(money);
 
+        account.setPoint(accumulatePoint(amount));
 
+
+    }
+
+    private int accumulatePoint(int amount) {
+        return (int) (amount * rate);
     }
 
 }
