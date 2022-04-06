@@ -15,6 +15,10 @@ public class Account {
 
     }
 
+    public String getName() {
+        return name;
+    }
+
     public long getId() {
         return this.id;
     }

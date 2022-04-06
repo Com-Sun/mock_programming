@@ -1,5 +1,8 @@
 package com.nhnacademy.paymentservice.accounts;
 
+import com.nhnacademy.paymentservice.Bill;
+import com.nhnacademy.paymentservice.DummySmsAlert;
+import com.nhnacademy.paymentservice.SmsAlert;
 import com.nhnacademy.paymentservice.exception.LoginFailedException;
 import com.nhnacademy.paymentservice.exception.paymentFailedException;
 import com.nhnacademy.paymentservice.repository.AccountRepository;
@@ -25,6 +28,7 @@ public class AccountService {
     }
 
     public void payment(int amount, Account account) {
+        SmsAlert smsAlert = new DummySmsAlert();
         if(account == null){
             throw new paymentFailedException("해당하는 account가 존재하지 않습니다.");
         }
@@ -40,7 +44,8 @@ public class AccountService {
         int money = account.getMoney();
         money -= amount;
         account.setMoney(money);
-
+        Bill bill = new Bill(amount, account);
+        paymentAlert(bill);
         account.plusPoint(accumulatePoint(amount));
 
 
@@ -50,4 +55,10 @@ public class AccountService {
         return (int) (amount * rate);
     }
 
+    public void paymentAlert(Bill bill) {
+        Account account = bill.getAccount();
+        System.out.println(account.getName());
+        System.out.println(account.getMoney());
+        System.out.println(bill.getPrice());
+    }
 }
