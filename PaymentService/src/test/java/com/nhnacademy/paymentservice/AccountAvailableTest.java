@@ -59,7 +59,38 @@ class AccountAvailableTest {
         int money = 10000;
 
         Account account = new Account(username, password, id, money);
+
+        assertThatThrownBy(() -> service.payment(20000, account))
+            .isInstanceOf(paymentFailedException.class);
+
+        assertThatThrownBy(() -> service.payment(-10000, account))
+            .isInstanceOf(paymentFailedException.class);
+
+        service.payment(5000, account);
+        assertThat(account.getMoney()).isEqualTo(money - 5000);
+
+
     }
+
+    @DisplayName("포인트 적립")
+    @Test
+    void pointAccumulation() {
+        float rate = 0.01f;
+        Account account = new Account("marco", "123123", 3, 10000);
+
+        service.payment(5000, account);
+        assertThat(account.getPoint()).isEqualsTo(5000 * rate);
+
+
+    }
+
+    @DisplayName("고객 계정 포인트 확인")
+    @Test
+    void acconutPointCheck() {
+
+    }
+
+
 }// account가 결제를 한다. this를 던짐
 
 

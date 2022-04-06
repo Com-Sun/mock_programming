@@ -5,6 +5,7 @@ public class Account {
     private String name;
     private String password;
     private int money;
+    private int point;
 
     public Account(String name, String password, long id, int money) {
         this.name = name;
@@ -23,5 +24,9 @@ public class Account {
 
     public void setMoney(int money) {
         this.money = money;
+    }
+
+    public int getPoint() {
+        return this.point;
     }
 }
