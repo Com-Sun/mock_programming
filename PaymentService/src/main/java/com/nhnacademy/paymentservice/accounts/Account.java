@@ -1,7 +1,7 @@
 package com.nhnacademy.paymentservice.accounts;
 
 public class Account {
-    private int id;
+    private long id;
     private String name;
     private String password;
 
@@ -11,6 +11,7 @@ public class Account {
         this.id = id;
     }
 
-    public Long getId() {
+    public long getId() {
+        return this.id;
     }
 }

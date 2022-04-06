@@ -20,7 +20,7 @@ class AccountAvailableTest {
 
     @BeforeEach
     void setUp() {
-        repository = new HashMapAccountRepository();
+        repository = mock(HashMapAccountRepository.class);
         service = new AccountService(repository);
 
     }
