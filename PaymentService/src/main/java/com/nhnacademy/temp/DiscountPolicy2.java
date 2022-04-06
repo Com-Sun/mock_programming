@@ -1,4 +1,4 @@
-package com.nhnacademy.paymentservice;
+package com.nhnacademy.temp;
 
 public enum DiscountPolicy2 implements Discountable {
     /* 10% */

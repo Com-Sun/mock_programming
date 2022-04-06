@@ -1,4 +1,4 @@
-package com.nhnacademy.paymentservice;
+package com.nhnacademy.temp;
 
 public class Discount {
     private final long amount;

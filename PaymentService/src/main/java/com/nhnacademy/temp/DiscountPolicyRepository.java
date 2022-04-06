@@ -1,4 +1,4 @@
-package com.nhnacademy.paymentservice;
+package com.nhnacademy.temp;
 
 import java.util.List;
 import java.util.Objects;

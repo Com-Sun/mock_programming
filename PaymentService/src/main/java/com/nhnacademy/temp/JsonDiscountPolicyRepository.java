@@ -1,4 +1,4 @@
-package com.nhnacademy.paymentservice;
+package com.nhnacademy.temp;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

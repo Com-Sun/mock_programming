@@ -1,4 +1,4 @@
-package com.nhnacademy.paymentservice;
+package com.nhnacademy.temp;
 
 public class PaymentServiceShell {
     private DiscountPolicyRepository repository;

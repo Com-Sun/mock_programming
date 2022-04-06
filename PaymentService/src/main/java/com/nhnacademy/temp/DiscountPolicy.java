@@ -1,12 +1,9 @@
-package com.nhnacademy.paymentservice;
+package com.nhnacademy.temp;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
-
-import java.util.Objects;
-import java.util.stream.Stream;
 
 import static java.lang.Math.min;
 

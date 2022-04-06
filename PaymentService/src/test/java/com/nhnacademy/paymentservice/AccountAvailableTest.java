@@ -1,16 +1,19 @@
 package com.nhnacademy.paymentservice;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class AccountAvailableTest {
+    private AccountService service;
+    private AccountRepository repository;
+
 
     @BeforeEach
     void setUp() {
-        repository = mock(AccountRepository.class);
+        repository = new HashMapAccountRepository();
         service = new AccountService(repository);
 
     }
@@ -18,10 +21,11 @@ class AccountAvailableTest {
     @DisplayName("계정이 없으면 예외 발생.")
     @Test
     void unableIdException () {
+        String username = "hyunjin";
+        Account account = new Account("marco", "aaa");
 
         when(repository.findByUsername(username)).thenReturn(account); //조작하는 stubbing 과정
 
-        Account result = service.login(username, password);
 
     }
 }
