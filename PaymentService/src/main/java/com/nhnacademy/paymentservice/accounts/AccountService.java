@@ -18,8 +18,11 @@ public class AccountService {
         if (found == null) {
             throw new LoginFailedException();
         }
-
-
     return null;
     }
+
+    public void payment() {
+
+    }
+
 }

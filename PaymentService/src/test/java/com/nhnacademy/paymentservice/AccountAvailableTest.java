@@ -31,11 +31,23 @@ class AccountAvailableTest {
         String username = "hyunjin";
         Account account = new Account("marco", "aaa", 1);
 
-        when(repository.findByUsername(username)).thenReturn(account); //조작하는 stubbing 과정
+        when(repository.findByUsername(username)).thenReturn(null); //조작하는 stubbing 과정
 
         assertThatThrownBy(() -> service.login(username, "aaa"))
             .isInstanceOf(LoginFailedException.class);
-
     }
-}
+
+    @DisplayName("결제는 계정에 의존.")
+    @Test
+    void paymentDependsAccount() {
+        Account account = new Account("marco2", "aaa", 2);
+
+        when(repository.findByUsername("aaa")).thenReturn(null);
+
+        Account result =
+
+        assertThatThrownBy(() -> service.payment())
+            .isInstanceOf(paymentFailedException.class);
+    }
+}// account가 결제를 한다. this를 던짐
 
