@@ -26,6 +26,7 @@ public class PaymentFinishTest {
         SmsAlert smsAlert = new DummySmsAlert();
         Bill bill = new Bill(3000, account);
         smsAlert.alert(bill);
+        service.paymentAlert(bill);
         verify(service).paymentAlert(bill);
     }
 
