@@ -35,7 +35,7 @@ public class Account {
         this.point = point;
     }
 
-    public void accumulatePoint(int point) {
+    public void plusPoint(int point) {
         this.point += point;
     }
 }

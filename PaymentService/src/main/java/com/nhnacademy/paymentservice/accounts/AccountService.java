@@ -41,7 +41,7 @@ public class AccountService {
         money -= amount;
         account.setMoney(money);
 
-        account.setPoint(accumulatePoint(amount));
+        account.plusPoint(accumulatePoint(amount));
 
 
     }

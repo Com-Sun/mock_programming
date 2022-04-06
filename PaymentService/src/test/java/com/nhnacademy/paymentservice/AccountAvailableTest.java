@@ -23,7 +23,6 @@ class AccountAvailableTest {
     void setUp() {
         repository = mock(HashMapAccountRepository.class);
         service = new AccountService(repository);
-
     }
 
     @DisplayName("계정이 없으면 예외 발생.")
